@@ -10,7 +10,7 @@ const routes = [
   { title: '菜式', icon: 'mdi-food', path: '/products' },
 ]
 const themeStore = useThemeStore()
-const { theme } = storeToRefs(themeStore)
+const { theme, themeIcon } = storeToRefs(themeStore)
 const { user, isLoggedIn } = storeToRefs(useUserStore())
 const { logout } = useUserStore()
 </script>
@@ -33,15 +33,17 @@ const { logout } = useUserStore()
           class="mx-4"
           false-value="lightTheme"
           true-value="darkTheme"
+          color="black"
+          inset
           v-model="theme"
+          :prepend-icon="themeIcon"
         >
-          <template v-slot:label> Theme: {{ theme }} </template>
         </v-switch>
       </v-list>
 
       <template v-slot:append>
         <div class="ma-2">
-          <v-btn color="error" block @click="logout">登出</v-btn>
+          <v-btn color="red" block @click="logout">登出</v-btn>
         </div>
       </template>
     </v-navigation-drawer>

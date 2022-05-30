@@ -12,5 +12,10 @@ export const useThemeStore = defineStore('theme', {
     tailwindThemeMode: ({ theme }) => {
       return theme === THEME.lightTheme ? 'light' : 'dark'
     },
+    themeIcon: ({ theme }) => {
+      return theme === THEME.lightTheme
+        ? 'mdi-weather-sunny'
+        : 'mdi-moon-waxing-crescent'
+    },
   },
 })
